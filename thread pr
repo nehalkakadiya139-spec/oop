@@ -1,0 +1,13 @@
+class T extends Thread{
+    int s,e,sum;
+    T(int a,int b){s=a;e=b;}
+    public void run(){for(int i=s;i<=e;i++)sum+=i;}
+}
+public class Main{
+    public static void main(String[] args)throws Exception{
+        T t1=new T(1,1000),t2=new T(1001,2000);
+        t1.start();t2.start();
+        t1.join();t2.join();
+        System.out.println(t1.sum+t2.sum);
+    }
+}
