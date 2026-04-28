@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+class BillGenerator {
+
+    void generateBill(int itemTotal) {
+        System.out.println("Final Bill = " + itemTotal);
+    }
+
+    void generateBill(int itemTotal, int discount) {
+        int finalAmount = itemTotal - discount;
+        System.out.println("Final Bill = " + finalAmount);
+    }
+
+    void generateBill(int itemTotal, double discountPercent) {
+        double finalAmount = itemTotal - (itemTotal * discountPercent / 100);
+        System.out.println("Final Bill = " + finalAmount);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        BillGenerator b = new BillGenerator();
+
+        int choice = sc.nextInt();     
+        int total = sc.nextInt();      
+
+        if (choice == 1) {
+            b.generateBill(total);
+        } 
+        else if (choice == 2) {
+            int discount = sc.nextInt();
+            b.generateBill(total, discount);
+        } 
+        else if (choice == 3) {
+            double percent = sc.nextDouble();
+            b.generateBill(total, percent);
+        }
+    }
+}
