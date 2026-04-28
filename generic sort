@@ -1,17 +1,44 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
-public class Main{
-    static <T extends Comparable<T>> void sort(List<T> l){
-        Collections.sort(l);
+public class Main {
+
+    public static <T extends Comparable<T>> void sortList(List<T> list) {
+        Collections.sort(list);
     }
 
-    public static void main(String[] args){
-        ArrayList<Integer> a=new ArrayList<>();
-        ArrayList<String> b=new ArrayList<>();
-        Scanner sc=new Scanner(System.in);
-        for(int i=0;i<3;i++) a.add(sc.nextInt());
-        for(int i=0;i<3;i++) b.add(sc.next());
-        System.out.println(a); sort(a); System.out.println(a);
-        System.out.println(b); sort(b); System.out.println(b);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
+
+        System.out.print("Enter number of integers: ");
+        int n = sc.nextInt();
+
+        System.out.println("Enter integers:");
+        for (int i = 0; i < n; i++) {
+            numbers.add(sc.nextInt());
+        }
+
+        System.out.print("Enter number of names: ");
+        int m = sc.nextInt();
+
+        System.out.println("Enter names:");
+        for (int i = 0; i < m; i++) {
+            names.add(sc.next());
+        }
+
+        System.out.println("Before Sorting (Numbers): " + numbers);
+        sortList(numbers);
+        System.out.println("After Sorting (Numbers): " + numbers);
+
+        System.out.println("Before Sorting (Names): " + names);
+        sortList(names);
+        System.out.println("After Sorting (Names): " + names);
+
+        sc.close();
     }
 }
