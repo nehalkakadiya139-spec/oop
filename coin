@@ -1,0 +1,15 @@
+import java.util.*;
+
+class coin {
+    public static void main(String[] args) {
+        int a = new Scanner(System.in).nextInt();
+        int n[] = {100,50,10,5,2,1};
+
+        for(int i:n){
+            if(a>=i){
+                System.out.println(i+"="+a/i);
+                a%=i;
+            }
+        }
+    }
+}
