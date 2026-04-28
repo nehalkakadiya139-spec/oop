@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+class A {
+    public int pubVar;
+    protected int protVar;
+    private int privVar;
+
+    A(int a, int b, int c) {
+        pubVar = a;
+        protVar = b;
+        privVar = c;
+    }
+
+    public int getPrivVar() {
+        return privVar;
+    }
+}
+
+class B extends A {
+    B(int a, int b, int c) {
+        super(a, b, c);
+    }
+
+    void display() {
+        System.out.println("From Class B:");
+        System.out.println("Public: " + pubVar);
+        System.out.println("Protected: " + protVar);
+    }
+}
+
+class C {
+    void display(int a, int b, int c) {
+        A obj = new A(a, b, c);
+
+        System.out.println("From Class C:");
+        System.out.println("Public: " + obj.pubVar);
+        System.out.println("Private (via method): " + obj.getPrivVar());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        B bObj = new B(a, b, c);
+        bObj.display();
+
+        C cObj = new C();
+        cObj.display(a, b, c);
+    }
+}
