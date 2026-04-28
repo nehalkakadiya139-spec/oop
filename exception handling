@@ -1,0 +1,22 @@
+class NotSufficientFundException extends Exception{
+    NotSufficientFundException(String m){super(m);}
+}
+class Bank{
+    double bal=1000;
+    void deposit(double a){bal+=a;}
+    void withdraw(double a) throws Exception{
+        if(a>bal) throw new NotSufficientFundException("Not Sufficient Fund");
+        bal-=a;
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        try{
+            Bank b=new Bank();
+            b.deposit(1000);
+            b.withdraw(400);
+            b.withdraw(300);
+            b.withdraw(500);
+        }catch(Exception e){System.out.println(e.getMessage());}
+    }
+}
