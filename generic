@@ -1,14 +1,38 @@
-import java.util.*;
-class Box<T>{
-    ArrayList<T> l=new ArrayList<>();
-    void addItem(T i){l.add(i);}
-    void show(){System.out.println(l);}
+import java.util.ArrayList;
+
+class Box<T> {
+    ArrayList<T> items;
+
+    public Box() {
+        items = new ArrayList<>();
+    }
+
+    public void addItem(T item) {
+        items.add(item);
+    }
+
+    public void displayItems() {
+        for (T item : items) {
+            System.out.println(item);
+        }
+    }
 }
-public class Main{
-    public static void main(String[] args){
-        Box<String> a=new Box<>();
-        Box<Integer> b=new Box<>();
-        a.addItem("A"); b.addItem(1);
-        a.show(); b.show();
+
+public class Main {
+    public static void main(String[] args) {
+
+        Box<String> nameBox = new Box<>();
+        nameBox.addItem("Alice");
+        nameBox.addItem("Bob");
+
+        Box<Integer> rollBox = new Box<>();
+        rollBox.addItem(101);
+        rollBox.addItem(102);
+
+        System.out.println("Names:");
+        nameBox.displayItems();
+
+        System.out.println("Roll Numbers:");
+        rollBox.displayItems();
     }
 }
