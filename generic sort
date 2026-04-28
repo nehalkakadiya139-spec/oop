@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Main{
+    static <T extends Comparable<T>> void sort(List<T> l){
+        Collections.sort(l);
+    }
+
+    public static void main(String[] args){
+        ArrayList<Integer> a=new ArrayList<>();
+        ArrayList<String> b=new ArrayList<>();
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<3;i++) a.add(sc.nextInt());
+        for(int i=0;i<3;i++) b.add(sc.next());
+        System.out.println(a); sort(a); System.out.println(a);
+        System.out.println(b); sort(b); System.out.println(b);
+    }
+}
