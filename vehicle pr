@@ -1,0 +1,73 @@
+class Vehicle {
+    protected String vehicleNumber, brand, fuelType;
+
+    Vehicle(String vno, String b, String f) {
+        vehicleNumber = vno;
+        brand = b;
+        fuelType = f;
+    }
+
+    void displayDetails() {
+        System.out.println("Vehicle No: " + vehicleNumber);
+        System.out.println("Brand: " + brand);
+        System.out.println("Fuel: " + fuelType);
+    }
+}
+
+class Car extends Vehicle {
+    int numberOfSeats;
+    boolean ACavailable;
+
+    Car(String vno, String b, String f, int seats, boolean ac) {
+        super(vno, b, f);
+        numberOfSeats = seats;
+        ACavailable = ac;
+    }
+
+    void displayDetails() {
+        super.displayDetails();
+        System.out.println("Seats: " + numberOfSeats);
+        System.out.println("AC Available: " + ACavailable);
+    }
+}
+
+class ElectricCar extends Car {
+    int batteryCapacity;
+    int chargingTime;
+
+    ElectricCar(String vno, String b, String f, int seats, boolean ac, int battery, int time) {
+        super(vno, b, f, seats, ac);
+        batteryCapacity = battery;
+        chargingTime = time;
+    }
+
+    void displayDetails() {
+        super.displayDetails();
+        System.out.println("Battery: " + batteryCapacity);
+        System.out.println("Charging Time: " + chargingTime);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Vehicle v = new Vehicle("GJ01", "Tata", "Petrol");
+        v.displayDetails();
+
+        Vehicle v2 = new Car("GJ02", "Hyundai", "Diesel", 5, true);
+        v2.displayDetails();
+
+        Vehicle v3 = new ElectricCar("GJ03", "Tesla", "Electric", 5, true, 75, 2);
+        v3.displayDetails();
+
+        if (v2 instanceof Car) {
+            Car c = (Car) v2;
+            System.out.println("Downcasted to Car, Seats: " + c.numberOfSeats);
+        }
+
+        if (v3 instanceof ElectricCar) {
+            ElectricCar ec = (ElectricCar) v3;
+            System.out.println("Downcasted to ElectricCar, Battery: " + ec.batteryCapacity);
+        }
+    }
+}
