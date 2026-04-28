@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Main{
+    static double avg(String[] v){
+        double s=0;
+        for(String x:v){
+            if(x==null) throw new NullPointerException();
+            s+=Double.parseDouble(x);
+        }
+        return s/v.length;
+    }
+    public static void main(String[] args){
+        try{System.out.println(avg(new String[]{"1","2","a"}));}
+        catch(Exception e){System.out.println(e);}
+        finally{System.out.println("Done");}
+    }
+}
