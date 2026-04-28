@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+class University {
+    static int totalStudents;
+    static String universityName;
+
+    static {
+        universityName = "ABC University";
+        System.out.println("Static Block Executed");
+    }
+
+    {
+        System.out.println("Instance Block Executed");
+    }
+
+    University() {
+        totalStudents++;
+        System.out.println("Constructor Executed");
+    }
+
+    static int getTotalStudents() {
+        return totalStudents;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        University[] u = new University[n];
+
+        for (int i = 0; i < n; i++) {
+            u[i] = new University();
+        }
+
+        System.out.println("Total Students = " + University.getTotalStudents());
+        System.out.println("University Name = " + University.universityName);
+    }
+}
