@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class LoanCalculator {
+
+    void calculateEMI(int principal, int time, float rate) {
+        float emi = (principal * rate * time) / (12 * 100);
+        System.out.println("Home Loan EMI = " + emi);
+    }
+
+    void calculateEMI(double principal, int time, double rate) {
+        double emi = (principal * rate * time) / (12 * 100);
+        System.out.println("Vehicle Loan EMI = " + emi);
+    }
+
+    void calculateEMI(int principal, int time) {
+        double rate = 10;
+        double emi = (principal * rate * time) / (12 * 100);
+        System.out.println("Personal Loan EMI = " + emi);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        LoanCalculator lc = new LoanCalculator();
+
+        int p1 = sc.nextInt();
+        int t1 = sc.nextInt();
+        float r1 = sc.nextFloat();
+        lc.calculateEMI(p1, t1, r1);
+
+        double p2 = sc.nextDouble();
+        int t2 = sc.nextInt();
+        double r2 = sc.nextDouble();
+        lc.calculateEMI(p2, t2, r2);
+
+        int p3 = sc.nextInt();
+        int t3 = sc.nextInt();
+        lc.calculateEMI(p3, t3);
+    }
+}
